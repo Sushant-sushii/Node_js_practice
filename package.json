@@ -1,0 +1,25 @@
+{
+  "name": "npm-test",
+  "version": "1.0.0",
+  "description": "This project is created to learn about npm",
+  "homepage": "https://github.com/Sushant-sushii/Node_js_practice#readme",
+  "bugs": {
+    "url": "https://github.com/Sushant-sushii/Node_js_practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sushant-sushii/Node_js_practice.git"
+  },
+  "license": "MIT",
+  "author": "Sushant",
+  "type": "commonjs",
+  "main": "7_NPM_and_Tools.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon 7_NPM_and_Tools.js",
+    "khul": "node 7_NPM_and_Tools.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
