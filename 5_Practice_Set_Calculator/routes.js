@@ -1,4 +1,4 @@
-const sum = require('./sum').sumHandler;
+const {sumRequestHandler} = require('./sum.js');
 const routing = (req, res) => {
 
 
@@ -289,7 +289,7 @@ const routing = (req, res) => {
         return;
     }
     else if (req.url.toLowerCase() === '/calculate-result' && req.method === 'POST') {
-       sum(req, res);
+       sumRequestHandler(req, res);
     }
     else{
          res.writeHead(404, { 'Content-Type': 'text/html' });
