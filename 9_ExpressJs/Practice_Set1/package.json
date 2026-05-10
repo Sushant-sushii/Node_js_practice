@@ -1,0 +1,13 @@
+{
+  "name": "practice_set1",
+  "version": "1.0.0",
+  "description": "1. Install `nodemon` and `express`.\r 2. Add two dummy middleware functions:\r    - one that logs the request path\r    - one that logs the request method\r 3. Add a third middleware that returns a response.\r 4. Add route handling using two more middleware functions:\r    - one for the path `/`\r    - one for the path `/contact-us`\r 5. Make `/contact-us` return a form with `name` and `email` input fields.\r    - the form should submit back to the `/contact-us` page\r 6. Also handle `POST` requests to `/contact-us` using a separate middleware.",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  }
+}

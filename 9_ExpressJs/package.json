@@ -1,0 +1,17 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "1.Create a new Node.js project named \"Calculator\".\r 2.On the home page(route\"/\") show a wwlcome message and a link to the calculator page.\r 3.On the \"/calculator\" page , display a form with two input fields and a \"Sum\" button.\r 4.When the user clicks the  \"Sum\" button they should be taken to the \"/calculate-result\" page, which shows the sum of the two numbers.\r # Make sure the request goes to the server.\r # Create a separate module for the addition function .\r # Create another module to handle incoming requests.\r # On the \"/calculator-result\" page ,parse the user input,use the addition module to calculate the sum and display the result on a new HTML page.",
+  "license": "MIT",
+  "author": "Sushant",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
