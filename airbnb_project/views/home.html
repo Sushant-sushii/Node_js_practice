@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb - Vacation Rentals & Homes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #222;
+        }
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff385c;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .nav-links a:hover {
+            color: #ff385c;
+        }
+        .add-home-btn {
+            padding: 10px 20px;
+            background: #ff385c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .add-home-btn:hover {
+            background: #e63447;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200') center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        /* Search Box */
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .search-box input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+        }
+        .search-box button {
+            padding: 10px 30px;
+            background: #ff385c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .search-box button:hover {
+            background: #e63447;
+        }
+        /* Listings Section */
+        .section {
+            padding: 60px 40px;
+        }
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .listing-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .listing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .listing-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                        url('https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400') center/cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+            color: white;
+        }
+        .listing-details {
+            padding: 15px;
+        }
+        .listing-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .listing-type {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .listing-price {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .rating {
+            color: #ff385c;
+            font-size: 14px;
+        }
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            padding: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">airbnb</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Browse Stays</a></li>
+            <li><a href="/">Help</a></li>
+            <li><a href="/">Sign Up</a></li>
+        </ul>
+        <a href="/host/add-home"><button class="add-home-btn">+ Add Home</button></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Find your next stay</h1>
+        <p>Explore homes around the world</p>
+        <div class="search-box">
+            <input type="text" placeholder="Where are you going?">
+            <input type="date">
+            <input type="date">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <!-- Featured Listings -->
+    <div class="section">
+        <h2>Featured Stays</h2>
+        <div class="listings">
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span>Featured</span>
+                </div>
+                <div class="listing-details">
+                    <div class="listing-title">Cozy Apartment in Downtown</div>
+                    <div class="listing-type">Entire apartment • 2 beds</div>
+                    <div class="rating">★★★★★ (428)</div>
+                    <div class="listing-price">$85 per night</div>
+                </div>
+            </div>
+
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span>Featured</span>
+                </div>
+                <div class="listing-details">
+                    <div class="listing-title">Beachfront Villa</div>
+                    <div class="listing-type">Entire villa • 4 beds</div>
+                    <div class="rating">★★★★★ (356)</div>
+                    <div class="listing-price">$245 per night</div>
+                </div>
+            </div>
+
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span>Featured</span>
+                </div>
+                <div class="listing-details">
+                    <div class="listing-title">Modern City Loft</div>
+                    <div class="listing-type">Entire loft • 1 bed</div>
+                    <div class="rating">★★★★★ (612)</div>
+                    <div class="listing-price">$120 per night</div>
+                </div>
+            </div>
+
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span>Featured</span>
+                </div>
+                <div class="listing-details">
+                    <div class="listing-title">Mountain Cabin Retreat</div>
+                    <div class="listing-type">Entire cabin • 3 beds</div>
+                    <div class="rating">★★★★★ (289)</div>
+                    <div class="listing-price">$150 per night</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="/">How it works</a></li>
+                    <li><a href="/">Newsroom</a></li>
+                    <li><a href="/">Investors</a></li>
+                    <li><a href="/">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Host</h3>
+                <ul>
+                    <li><a href="/">Become a host</a></li>
+                    <li><a href="/">Hosting resources</a></li>
+                    <li><a href="/">Community forum</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="/">Help Center</a></li>
+                    <li><a href="/">Contact us</a></li>
+                    <li><a href="/">Privacy</a></li>
+                    <li><a href="/">Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow</h3>
+                <ul>
+                    <li><a href="/">Facebook</a></li>
+                    <li><a href="/">Twitter</a></li>
+                    <li><a href="/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

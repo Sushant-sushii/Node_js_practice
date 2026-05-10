@@ -1,24 +1,23 @@
 const express = require('express');
+const path = require('path');
 const hostRouter = express.Router();
+const bodyParser = require('body-parser');
 
-hostRouter.get('/add-home',(req,res,next)=>{
-      res.send(`<h1>Resgister your home here</h1>
-    <form action="/add-home" method="post">
-        <input type="text" name="home-name" placeholder="Home Name">
-        <input type="text" name="home-location" placeholder="Home Location">
-        <button type="submit">Add Home</button>
-       
-    </form>`);
+app=express();
+hostRouter.get('/add-home', (req, res, next) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'addHome.html'));
 });
-// app.use(bodyParser.urlencoded({extended:true}));
-hostRouter.post('/add-home',(req,res,next)=>{
-    res.send(`<h1>Home added successfully</h1>
-        <a href="/">Go back to home</a>
-    <p>Home Name: ${req.body['home-name']}</p>
-    <p>Home Location: ${req.body['home-location']}</p>
-    `);
-    console.log(req.body);
+app.use(express.urlencoded());
+
+
+hostRouter.post('/add-home', (req, res, next) => {
+    
+    
+    
+   res.sendFile(path.join(__dirname, '../views', 'homeAdded.html'));
 });
+
+module.exports = hostRouter;
 
 
 module.exports = hostRouter;
