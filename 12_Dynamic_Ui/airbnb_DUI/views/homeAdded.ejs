@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Added Successfully | Airbnb</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: #ff385c;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff385c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        a:hover {
+            background: #e63447;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Home Added Successfully!</h1>
+        <p>Your home has been added to our listings. It will be reviewed and published shortly.</p>
+
+        <!-- Dynamic UI USING Ejs -->
+<ul>
+    <% regHomes.forEach(function(home){%>
+        <li>
+            <p>Home Name:</p><%=home.homeName%>
+        </li>
+        
+    <% })%>
+
+    <% regLocation.forEach(function(home){%>
+        <li>
+            <p>Home Name:</p><%=home.homeLocation%>
+        </li>
+        
+    <% })%>
+</ul>
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
